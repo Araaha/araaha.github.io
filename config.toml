@@ -8,10 +8,10 @@ generate_feed = true
 minify_html = true
 
 theme = "apollo"
-
 [markdown]
 highlight_code = true
-highlight_theme = "gruvbox-dark"
+extra_syntaxes_and_themes = ["highlight_themes"]
+highlight_theme = "gruvbox-modified"
 
 [extra]
 toc = true
