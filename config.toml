@@ -14,9 +14,9 @@ highlight_code = true
 highlight_theme = "gruvbox-dark"
 
 [extra]
-toc = false
+toc = true
 use_cdn = false
-
+favicon = "/icon/favicon.ico"
 theme = "dark" # light, dark, auto, toggle
 
 menu = [
