@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Araaha</title>
+    <link href="https://araaha.me/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://araaha.me"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-12-15T00:00:00+00:00</updated>
+    <id>https://araaha.me/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Test</title>
+        <published>2023-12-15T00:00:00+00:00</published>
+        <updated>2023-12-15T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://araaha.me/blog/tst/" type="text/html"/>
+        <id>https://araaha.me/blog/tst/</id>
+        
+        <content type="html">&lt;h1 id=&quot;testings&quot;&gt;TESTINGS&lt;&#x2F;h1&gt;
+&lt;pre data-lang=&quot;python&quot; style=&quot;background-color:#282828;color:#fdf4c1aa;&quot; class=&quot;language-python &quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span style=&quot;color:#fa5c4b;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa5c4b;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fabd2f;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdf4c1;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d3869b;&quot;&gt;100&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdf4c1;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fabd2f;&quot;&gt;print&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdf4c1;&quot;&gt;(i)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dictum velit lorem, in condimentum magna hendrerit a. Aliquam scelerisque dui purus, quis rhoncus ligula iaculis ut. Vestibulum vel mollis risus. Mauris non ipsum nec elit vehicula ultrices. Ut vel efficitur massa. Pellentesque sodales odio nulla, sed maximus nibh tristique vitae. Nullam vestibulum non magna et aliquet. Nulla in fringilla turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer tempor turpis odio, eu fermentum diam dapibus a. Aenean turpis dolor, posuere et condimentum vitae, lobortis ut mi. Praesent sit amet risus dignissim tortor feugiat mattis. Aenean mattis urna ut porttitor euismod. Nam rutrum tincidunt odio et aliquam. Sed laoreet purus non velit posuere aliquet. Cras non elementum sem.&lt;&#x2F;p&gt;
+&lt;p&gt;Sed tincidunt congue quam vitae cursus. Cras tincidunt augue nunc, ac iaculis eros molestie ut. In placerat ornare euismod. Pellentesque sit amet congue sem. Nulla sed lorem dolor. Pellentesque euismod lorem ut ligula consectetur blandit. Integer laoreet iaculis ipsum in lacinia. Maecenas ullamcorper id ipsum et volutpat. Curabitur sagittis massa ut mi faucibus pulvinar.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#282828;color:#fdf4c1aa;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#fa5c4b;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa5c4b;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span&gt;{1..10}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fe8019;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa5c4b;&quot;&gt;do &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fabd2f;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fdf4c1;&quot;&gt;$i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#fe8019;&quot;&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#fa5c4b;&quot;&gt;done
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</content>
+        
+    </entry>
+</feed>
