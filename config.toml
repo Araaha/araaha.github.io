@@ -20,9 +20,9 @@ use_cdn = false
 theme = "dark" # light, dark, auto, toggle
 
 menu = [
-    { name = "/blog/", url = "/blog", weight = 1 },
-    { name = "/projects/", url = "/projects", weight = 2 },
-    { name = "/about/", url = "/about", weight = 3 },
+    { name = "blog", url = "/blog", weight = 1 },
+    { name = "projects", url = "/projects", weight = 2 },
+    { name = "about", url = "/about", weight = 3 },
 ]
 
 socials = [
