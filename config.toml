@@ -14,7 +14,7 @@ extra_syntaxes_and_themes = ["highlight_themes"]
 highlight_theme = "gruvbox-modified"
 
 [extra]
-toc = true
+toc = false
 use_cdn = false
 favicon = "/icon/favicon.ico"
 theme = "dark" # light, dark, auto, toggle
@@ -28,6 +28,7 @@ menu = [
 socials = [
     { name = "github", url = "https://github.com/araaha/", icon = "github" },
     { name = "email", url = "mailto:ara.ahady@gmail.com", icon = "email" },
+    { name = "linkedin", url = "https://linkedin.com/in/araaha", icon = "linkedin" },
     { name = "rss", url = "/atom.xml", icon = "rss" },
 ]
 
