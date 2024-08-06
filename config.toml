@@ -6,8 +6,8 @@ compile_sass = true
 build_search_index = false
 minify_html = true
 generate_feeds = true
-
 theme = "apollo"
+
 [markdown]
 highlight_code = true
 extra_syntaxes_and_themes = ["highlight_themes"]
