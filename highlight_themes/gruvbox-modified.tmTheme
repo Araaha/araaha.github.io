@@ -223,7 +223,7 @@
       </dict>
       <dict>
         <key>scope</key>
-        <string>storage, storage.type.annotation, storage.type.primitive, storage.modifier.import, storage.modifier.package, storage.type.import, variable.import, variable.package</string>
+        <string>storage, storage.type.annotation, storage.type.primitive, storage.modifier.import, storage.modifier.package, storage.type.import, variable.import, variable.package, entity.name.function.jade, entity.name.function.pug, keyword.other.special-method, meta.function-call variable.other.dollar.only punctuation.dollar</string>
         <key>settings</key>
         <dict>
           <key>foreground</key>
@@ -401,7 +401,7 @@
         <key>name</key>
         <string>Strings</string>
         <key>scope</key>
-        <string>meta.object-literal.key string, string</string>
+        <string>meta.object-literal.key string, string, meta.function-call variable.function</string>
         <key>settings</key>
         <dict>
           <key>foreground</key>
@@ -710,7 +710,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#9dc365</string>
+          <string>#fe8019</string>
         </dict>
       </dict>
       <dict>
