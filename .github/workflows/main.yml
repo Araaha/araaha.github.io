@@ -15,7 +15,8 @@ jobs:
       - name: Build only
         uses: shalzz/zola-deploy-action@v0.19.1
         env:
-          BUILD_DIR: docs
+          OUT_DIR: docs
+          PAGES_BRANCH: main
           # A GitHub token is not necessary when BUILD_ONLY is true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -28,6 +29,6 @@ jobs:
       - name: Build and deploy
         uses: shalzz/zola-deploy-action@v0.19.1
         env:
-          BUILD_DIR: docs
+          OUT_DIR: docs
           PAGES_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
