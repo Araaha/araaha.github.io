@@ -3,18 +3,18 @@ title = "Extreme ZSH Performance"
 date = "2024-08-06"
 +++
 
-This blog post is for those who want to improve their ZSH startup time. With a clean `.zshrc`, ZSH is quite fast. But once you start adding various things to it, it can slow down dramatically.
+This blog post is for those looking to improve their ZSH startup time. With a clean `.zshrc`, ZSH is quite fast. But once you start adding various things to it, it can slow down dramatically.
 
-TLDR: Organize your `.zshrc` well and use [zsh-defer](https://github.com/romkatv/zsh-defer).
+TLDR: Organize your `.zshrc` effectively and use [zsh-defer](https://github.com/romkatv/zsh-defer).
 
 
 # Performance Analysis
 
-While you could use everything from `zprof` to `hyperfine` and `time`, the most comprehensive way is likely via [zsh-bench](https://github.com/romkatv/zsh-bench). Just run
+While you could use everything from `zprof` to `hyperfine` and `time`, the most comprehensive way is with [zsh-bench](https://github.com/romkatv/zsh-bench). Just run
 ```sh
 git clone https://github.com/romkatv/zsh-bench ~/zsh-bench && cd zsh-bench
 ```
-in your terminal. Running the `zsh-bench` script prints the following for me:
+in your terminal. Running the `zsh-bench` script outputs this:
 ```sh
 ==> benchmarking login shell of user araaha ...
 creates_tty=1
@@ -28,13 +28,13 @@ command_lag_ms=40.244
 input_lag_ms=11.732
 exit_time_ms=90.718
 ```
-on an AMD Ryzen 5 5500U.
+on my laptop (AMD Ryzen 5 5500U).
 
 The lines we want to focus on are the latter four:
 ```sh
 first_prompt_lag_ms=237.871
 first_command_lag_ms=263.405
-command_lag_ms=37.558
+command_lag_ms=40.244
 input_lag_ms=11.732
 ```
 
@@ -55,11 +55,11 @@ exit_time_ms=10.877
 
 # Organizing ZSH
 Originally, I had a `.zshrc` with hundreds of lines. I managed to reduce it to just 32.
-In my opinion, making use of `$ZDOTDIR` to place your zsh config in one folder. In any case, I have mine exported as
+You can use `$ZDOTDIR` to place your zsh config in a dedicated folder. In any case, I have mine exported as
 ```sh
 export ZDOTDIR=/home/araaha/.config/zsh
 ```
-in `/etc/zsh/zshenv`. That way, my `.zshrc` doesn't clog up `$HOME`. The layout is as follows:
+in `/etc/zsh/zshenv`. That way, `$HOME` is kept uncluttered. The layout is as follows:
 ```sh
 zsh
  ├─ modules
@@ -86,7 +86,7 @@ zsh
 Every plugin I have is placed in `plugins` and everything else in `modules`. For example, `exports.zsh` includes exports I have. Similarly, `aliases.zsh` includes aliases I have.
 
 # Zsh-defer
-Now, rewriting your `.zshrc` is very simple. Personally, the first three lines in my `.zshrc` are:
+Now, rewriting your `.zshrc` is straightforward. Personally, the first three lines in my `.zshrc` are:
 ```sh
 export ZSH="$HOME/.config/zsh"
 export PLUG="$ZSH/plugins"
@@ -144,7 +144,7 @@ The plugins that affect performance the most are [zsh-autosuggestions](https://g
 
 # Additional Optimizations
 ## Compinit
-`compinit` siginificantly affects startup time. We can cache it once a day so that to speed things up:
+`compinit` siginificantly affects startup time. We can cache it once a day to speed things up:
 ```sh
 autoload -Uz compinit
 if [ $(date +'%j') != $(date -r $ZSH/.zcompdump +'%j') ]; then
@@ -155,10 +155,10 @@ fi
 ```
 
 ## Zcompile
-Compiling your plugins via `zcompile` can make an impact. E.g., using `zcompile` on [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode) reduces my startup time by ~10ms.
+Using `zcompile` on your plugins can have an impact. E.g., using `zcompile` on [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode) reduces my startup time by ~10ms.
 
 ## Git Prompt
 Using an async git prompt will likely improve performance.
 
 ## Oh-My-ZSH
-OMZ has dozens of plugins, most of which you probably don't use. It's better to create your own config.
+OMZ has dozens of plugins, most of which you likely won't use. It's better to create your own config and only include plugins you regularly use.
