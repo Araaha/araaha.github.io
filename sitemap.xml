@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://araaha.me/</loc>
+    </url>
+    <url>
+        <loc>https://araaha.me/about/</loc>
+    </url>
+    <url>
+        <loc>https://araaha.me/blog/</loc>
+    </url>
+    <url>
+        <loc>https://araaha.me/blog/zsh-perf/</loc>
+        <lastmod>2025-02-07</lastmod>
+    </url>
+    <url>
+        <loc>https://araaha.me/projects/</loc>
+    </url>
+    <url>
+        <loc>https://araaha.me/projects/tb-go/</loc>
+    </url>
+</urlset>
