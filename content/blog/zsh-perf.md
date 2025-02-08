@@ -1,6 +1,6 @@
 +++
 title = "Extreme ZSH Performance"
-date = "2024-08-06"
+date = "2025-02-07"
 +++
 
 This blog post is for those looking to improve their ZSH startup time. With a clean `.zshrc`, ZSH is quite fast. But once you start adding various things to it, it can slow down dramatically.
@@ -28,7 +28,7 @@ command_lag_ms=40.244
 input_lag_ms=11.732
 exit_time_ms=90.718
 ```
-on my laptop (AMD Ryzen 5 5500U).
+on an AMD laptop (Ryzen 5 5500U).
 
 The lines we want to focus on are the latter four:
 ```sh
@@ -54,7 +54,7 @@ exit_time_ms=10.877
 ```
 
 # Organizing ZSH
-Originally, I had a `.zshrc` with hundreds of lines. I managed to reduce it to just 32.
+Originally, I had a `.zshrc` with hundreds of lines. I managed to reduce it to just 7.
 You can use `$ZDOTDIR` to place your zsh config in a dedicated folder. In any case, I have mine exported as
 ```sh
 export ZDOTDIR=/home/araaha/.config/zsh
@@ -63,25 +63,24 @@ in `/etc/zsh/zshenv`. That way, `$HOME` is kept uncluttered. The layout is as fo
 ```sh
 zsh
  ├─ modules
+ │  ├─ tty.zsh
  │  ├─ bindkeys.zsh
- │  ├─ zstyle.zsh
- │  ├─ options.zsh
+ │  ├─ fzf.zsh
+ │  ├─ aliases.zsh
  │  ├─ prompt.zsh
- │  ├─ compinit.zsh
- │  ├─ zvm.zsh
  │  ├─ zoxide.zsh
  │  ├─ exports.zsh
- │  ├─ tty.zsh
- │  ├─ history.zsh
- │  └─ aliases.zsh
+ │  ├─ compinit.zsh
+ │  ├─ zstyle.zsh
+ │  ├─ options.zsh
+ │  ├─ pre-defer.zsh
+ │  └─ history.zsh
  └─ plugins
-    ├─ zsh-completion-generator
     ├─ zsh-defer
-    ├─ functions.zsh
+    ├─ vi-motions
     ├─ fast-syntax-highlighting
     ├─ zsh-autosuggestions
-    ├─ fzf.zsh
-    └─ zsh-vi-mode
+    └─ zsh-completion-generator
 ```
 Every plugin I have is placed in `plugins` and everything else in `modules`. For example, `exports.zsh` includes exports I have. Similarly, `aliases.zsh` includes aliases I have.
 
@@ -96,34 +95,13 @@ We can start sourcing our modules and plugins and use [zsh-defer](https://github
 
 By the end, I ended up with
 ```sh
-export ZSH="$HOME/.config/zsh"
-export PLUG="$ZSH/plugins"
-export MOD="$ZSH/modules"
+source "$ZDOTDIR/modules/pre-defer.zsh"
 
-source "$PLUG/zsh-defer/zsh-defer.plugin.zsh"
+defer=("$MOD/prompt.zsh" "$MOD/exports.zsh" "$MOD/aliases.zsh" "$MOD/bindkeys.zsh" "$MOD/compinit.zsh" "$MOD/zstyle.zsh" "$MOD/zoxide.zsh" "$MOD/fzf.zsh" "$PLUG/vi-motions/motions.zsh" "$PLUG/zsh-autosuggestions/zsh-autosuggestions.zsh" "$PLUG/fast-syntax-highlighting/fast-syntax-highlighting.zsh")
 
-#zvm must be above zsh-vi-mode
-source "$MOD/zvm.zsh"
-source "$PLUG/zsh-vi-mode/zsh-vi-mode.zsh"
-
-zvm_after_init_commands+=("[[ -t 0 && $- = *i* ]] && stty -ixon")
-
-source "$MOD/prompt.zsh"
-source "$MOD/options.zsh"
-source "$MOD/history.zsh"
-
-zsh-defer source "$MOD/exports.zsh"
-zsh-defer source "$MOD/aliases.zsh"
-zsh-defer source "$MOD/bindkeys.zsh"
-
-zsh-defer source "$MOD/zoxide.zsh"
-zsh-defer source "$MOD/compinit.zsh"
-zsh-defer source "$MOD/zstyle.zsh"
-
-zsh-defer source "$PLUG/fzf.zsh"
-zsh-defer source "$PLUG/functions.zsh"
-zsh-defer source "$PLUG/zsh-autosuggestions/zsh-autosuggestions.zsh"
-zsh-defer source "$PLUG/fast-syntax-highlighting/fast-syntax-highlighting.zsh"
+for file in "${defer[@]}"; do
+    zsh-defer source "$file"
+done
 ```
 which led to this result from [zsh-bench](https://github.com/romkatv/zsh-bench):
 ```sh

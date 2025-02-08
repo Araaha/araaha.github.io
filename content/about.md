@@ -11,8 +11,4 @@ Hi, I'm Arash
 
 &nbsp;
 
-
-
-I like tech stuff.
-
-Here's my <span style="color:#7daea3">[resume/CV](araaha.me)</span>.
+I like the terminal.
